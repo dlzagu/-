@@ -236,3 +236,159 @@ a[시작 번호:끝 번호]에서 시작 번호를 생략하면 문자열의 처
 '3.4213'
 ```
 소수점 네 번째 자리까지만 표시하고 전체 길이가 10개인 문자열 공간에서 오른쪽으로 정렬하는 예
+
+## format 함수를 사용한 포매팅 
+```python
+숫자바로 대입하기 
+>>> "I eat {0} apples".format(3)
+'I eat 3 apples'
+
+문자열 바로 대입하기 
+>>> "I eat {0} apples".format("five")
+'I eat five apples'
+
+숫자 값을 가진 변수로 대입하기 
+>>> number = 3
+>>> "I eat {0} apples".format(number)
+'I eat 3 apples'
+
+2개 이상의 값 넣기 
+>>> number = 10
+>>> day = "three"
+>>> "I ate {0} apples. so I was sick for {1} days.".format(number, day)
+'I ate 10 apples. so I was sick for three days.'
+
+이름으로 넣기 
+>>> "I ate {number} apples. so I was sick for {day} days.".format(number=10, day=3)
+'I ate 10 apples. so I was sick for 3 days.'
+
+왼쪽 정렬 
+>>> "{0:<10}".format("hi")
+'hi     
+
+오른쪽 정렬
+>>> "{0:>10}".format("hi")
+'        hi'
+
+가운데 정렬
+>>> "{0:^10}".format("hi")
+'    hi 
+
+공백 채우기 
+>>> "{0:=^10}".format("hi")
+'====hi===='
+>>> "{0:!<10}".format("hi")
+'hi!!!!!!!!'
+
+소수점 표현하기 
+>>> y = 3.42134234
+>>> "{0:0.4f}".format(y)
+'3.4213'
+```
+### f 문자열 포매팅
+ 파이썬 3.6 버전부터는 f 문자열 포매팅 기능을 사용할 수 있다
+
+ ```python
+>>> name = '홍길동'
+>>> age = 30
+>>> f'나의 이름은 {name}입니다. 나이는 {age}입니다.'
+'나의 이름은 홍길동입니다. 나이는 30입니다.'
+ ```
+ f 문자열 포매팅은 표현식을 지원하기 때문에 다음과 같은 것도 가능하다.
+ >※ 표현식이란 문자열 안에서 변수와 +, -와 같은 수식을 함께 사용하는 것을 말한다.
+ ```python
+>>> age = 30
+>>> f'나는 내년이면 {age+1}살이 된다.'
+'나는 내년이면 31살이 된다.'
+ ```
+ 딕셔너리는 f 문자열 포매팅에서 다음과 같이 사용할 수 있다.
+ >※ 딕셔너리는 Key와 Value라는 것을 한 쌍으로 갖는 자료형이다. 02-5에서 자세히 알아본다.
+ ```python
+>>> d = {'name':'홍길동', 'age':30}
+>>> f'나의 이름은 {d["name"]}입니다. 나이는 {d["age"]}입니다.'
+'나의 이름은 홍길동입니다. 나이는 30입니다.'
+ ```
+
+```python
+정렬 
+>>> f'{"hi":<10}'  # 왼쪽 정렬
+'hi        '
+>>> f'{"hi":>10}'  # 오른쪽 정렬
+'        hi'
+>>> f'{"hi":^10}'  # 가운데 정렬
+'    hi    '
+
+공백 채우기
+>>> f'{"hi":=^10}'  # 가운데 정렬하고 '=' 문자로 공백 채우기
+'====hi===='
+>>> f'{"hi":!<10}'  # 왼쪽 정렬하고 '!' 문자로 공백 채우기
+'hi!!!!!!!!'
+
+f 문자열에서 { } 문자를 표시하려면 다음과 같이 두 개를 동시에 사용해야 한다.
+
+>>> f'{{ and }}'
+'{ and }'
+```
+
+# 문자열 관련 함수들 
+## 문자 개수 세기 (count)
+```python 
+>>> a = "hobby"
+>>> a.count('b')
+2
+```
+## 위치 알려주기1 (find)
+```python 
+>>> a = "Python is the best choice"
+>>> a.find('b')
+14
+>>> a.find('k')
+-1
+```
+## 위치 알려주기2 (index)
+```python 
+>>> a = "Life is too short"
+>>> a.index('t')
+8
+>>> a.index('k')
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: substring not found
+```
+앞의 find 함수와 다른 점은 문자열 안에 존재하지 않는 문자를 찾으면 오류가 발생
+## 문자열 삽입 (join)
+```python 
+>>>> ",".join('abcd')
+'a,b,c,d'
+```
+## 소문자를 대문자로 바꾸기 (upper)
+```python 
+>>> a = "hi"
+>>> a.upper()
+'HI'
+```
+## 대문자를 소문자로 바꾸기 (lower)
+```python 
+>>> a = "HI"
+>>> a.lower()
+'hi'
+```
+
+## 문자열 바꾸기 (replace)
+```python 
+>>> a = "Life is too short"
+>>> a.replace("Life", "Your leg")
+'Your leg is too short'
+```
+
+## 문자열 나누기 (split))
+```python 
+>>> a = "Life is too short"
+>>> a.split()
+['Life', 'is', 'too', 'short']
+>>> b = "a:b:c:d"
+>>> b.split(':')
+['a', 'b', 'c', 'd']
+```
+
+[출처](https://wikidocs.net/13)

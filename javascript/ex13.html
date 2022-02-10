@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>WEB1 - JavaScript</title>
+  <meta charset="utf-8">
+  <script>
+    function LinkssetColor(color){
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+          alist[i].style.color = color;
+          i = i + 1;
+        }
+      }
+    function BodysetColor(color){
+        document.querySelector('body').style.color =  color;
+    }    
+    function nightDayHandler(self){
+      var target = document.querySelector('body')
+      if(self.value === 'night'){
+        target.style.backgroundColor = 'black';
+        BodysetColor(white);
+        self.value = 'day';
+        
+        LinkssetColor('powderblue');
+        } else {
+        target.style.backgroundColor = 'white';
+        target.style.color =  'black';
+        self.value = 'night';
+
+        LinkssetColor('blue');
+    }
+  }
+  </script>
+</head>
+<body>
+  <h1><a href="index.html">WEB</a></h1>
+  <input id="day_night" type="button" value="night" onclick="
+     nightDayHandler(this);
+      ">
+    <ol>
+      <li><a href="1.html">HTML</a></li>
+      <li><a href="2.html">CSS</a></li>
+      <li><a href="3.html">JavaScript</a></li>
+    </ol>
+    <h2>JavaScript</h2>
+  <p>
+  alksdjlasjdlajkldjasldjalkdjkamclkasmlmlk
+  </p>
+
+
+</body>
+</html>
